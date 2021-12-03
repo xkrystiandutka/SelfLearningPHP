@@ -73,6 +73,38 @@
         var_dump($a !== $b);
     
     ?>
+
+    <h2> Logical operators </h2>
+
+    <?php 
     
+    $x = true;
+    $y = false;
+    
+    echo "x = ";
+    var_dump($x);
+    echo "y = ";
+    var_dump($y);
+
+    echo '<br><br> OR :';
+    var_dump($x or $y);
+    echo '<br><br> AND :';
+    var_dump($x and $y);
+    echo '<br><br>OR || :';
+    var_dump($x || $y);
+    echo '<br><br>AND && :';
+    var_dump($x && $y);
+    echo '<br><br> XOR :';
+    var_dump($x xor $y);
+    echo '<br><br> NOT :';
+    var_dump(!$x);
+
+    echo '<br><br>Score = ';
+    var_dump((true || false) && !false);
+
+    ?>
+
+
+
 </body>
 </html>
