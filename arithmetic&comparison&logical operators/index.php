@@ -11,9 +11,9 @@
         <h2> Arithmetic operators</h2>
         <form method="post">  
     Enter First Number (a) :
-    <input type="number" name="number1" /><br><br>  
+    <input type="number" name="number1" placeholder="Number 1" required="number"/><br><br>  
     Enter Second Number (b) : 
-    <input type="number" name="number2" /><br><br>  
+    <input type="number" name="number2" placeholder="Number 2" required="number"/><br><br>  
     <input  type="submit" name="submit" value="Add">  
 </form>  
 <?php  
@@ -29,24 +29,50 @@
      
         $a = $number1;
         $b = $number2;
-        echo "a = $a, b = $b<br>";
+        echo "a = $a b = $b<br>";
         echo "<br>Addition = " . ($a + $b);
         echo "<br>Subtraction = " . ($a - $b);
         echo "<br>Multiplication = " . ($a * $b);
         echo "<br>Division = " . round( $a / $b, 2);
         echo "<br>Modulus = " . ($a % $b);
         
-        //$a = $a + 10;
-        //$a += 10;
+        /*$a = $a + 10;
+        $a += 10;
         $a++;
         echo "<br>a=" . $a++;
         echo "<br>a=" . $a;
-        echo "<br>a=" . ++$a;
+        echo "<br>a=" . ++$a; */
         
         echo "<br>Exponentiation = " . POW($a,$b);
         echo "<br>Square rooting = " . round(sqrt($a),2);
         
      ?>
+
+    <h2> Comparison operators </h2>
+    <?php 
+
+        echo "a = $a, b = $b<br>";
+        echo "<br>$a == $b : ";
+        var_dump($a == $b);
+        echo "<br>$a != $b :";
+        var_dump($a != $b);
+        echo "<br>$a != $b : ";
+        var_dump($a <> $b);
+        echo "<br>$a < $b : ";
+        var_dump($a < $b);
+        echo "<br>$a <= $b : ";
+        var_dump($a <= $b);
+        echo "<br>$a > $b :";
+        var_dump($a > $b);
+        echo "<br>$a >= $b : ";
+        var_dump($a >= $b);
+
+        echo "<br>$a === $b : ";
+        var_dump($a === $b);
+        echo "<br>$a !== $b : ";
+        var_dump($a !== $b);
+    
+    ?>
     
 </body>
 </html>
