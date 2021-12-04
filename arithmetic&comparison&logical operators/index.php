@@ -17,16 +17,17 @@
     <input  type="submit" name="submit" value="Add">  
 </form>  
 <?php  
-        $number1 = 1;
-        $number2 = 1;
+       $number1=1;
+       $number2=1;
+
     if(isset($_POST['submit']))  {  
         $number1 = $_POST['number1'];  
         $number2 = $_POST['number2'];  
     }  
 ?>  
      
-     <?php 
-     
+     <?php
+        
         $a = $number1;
         $b = $number2;
         echo "a = $a b = $b<br>";
