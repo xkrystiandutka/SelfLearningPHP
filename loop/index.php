@@ -39,6 +39,10 @@ table, th, td {
             $i = $a;
             while($i > 0 ){
                 echo "$i<br>";
+                if($i == 5)
+                {
+                    break;
+                }
                 $i--;
             }
             
@@ -47,14 +51,24 @@ table, th, td {
     
             $i = $a;
             do {
-                echo "$i<br>";
+                if($i % 2 == 1) {
+                    goto lab1;
+                }
+                echo "$i - even<br>";
+                $i--;
+                continue;
+                lab1:
+                echo "$i - odd<br>";
                 $i--;
             } while($i > 0);
 
             echo '</td><td>';
     
-            for($i = $a; $i>0; $i--){
-                echo "$i<br>";
+            for(; $a > 0; $a--){
+                if($a % 2 == 1){
+                continue;
+                }
+                echo "$a<br>";
             }
 
             echo '</td></tr></table>';
