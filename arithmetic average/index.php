@@ -7,7 +7,7 @@
     <title>Arithmetic Average</title>
 </head>
 <body>
-    <h1>Arithmetic average caluclator</h1>
+    <h1>Arithmetic average calculator</h1>
 <style>
         * {
             font-family: sans-serif;
