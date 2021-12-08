@@ -44,12 +44,14 @@ if(isset($_POST['name'])){
             
             $file = file('name.txt');
             //var_dump($file);
-            echo "<ul>";
-            foreach ($file as $name){
-                echo "<li>$name</li>";
-            }
-            echo "</ul>";
-        } else echo "The list of names is empty"
+            if (!empty($file)){
+                echo "<ul>";
+                foreach ($file as $name){
+                    echo "<li>$name</li>";
+                }
+                echo "</ul>";
+            }   else echo "The list of names is empty";
+        } else echo "The list of names is empty";
         ?>
         
     </td>
