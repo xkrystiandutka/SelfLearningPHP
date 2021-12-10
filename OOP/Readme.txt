@@ -1,5 +1,3 @@
 object oriented programming
--class object
--
--
--
+-class & object
+-constructors & destructors
