@@ -3,3 +3,4 @@ object oriented programming
 -constructors & destructors
 -inheritance
 -class abstract & interface
+-static
