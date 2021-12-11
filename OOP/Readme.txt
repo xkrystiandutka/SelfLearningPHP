@@ -4,3 +4,4 @@ object oriented programming
 -inheritance
 -class abstract & interface
 -static
+-final
