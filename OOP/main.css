@@ -1,0 +1,16 @@
+* {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 35px;
+}
+
+table {
+    display: inline-block;
+}
+
+th,
+td {
+    border: 1px solid #999;
+    border-collapse: collapse;
+    padding: 5px;
+}
