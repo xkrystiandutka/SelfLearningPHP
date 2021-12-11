@@ -26,11 +26,6 @@
             padding: 5px;
         }
 </style>
-<?php
-
-use Person as GlobalPerson;
-
-?>
 <table>
     <tr>
       <td>
