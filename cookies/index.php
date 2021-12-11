@@ -4,48 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Cookies</title>
 </head>
 <body>
     <h1>Cookies</h1>
-<style>
-        * {
-            font-family: sans-serif;
-            text-align: center;
-            font-size: 35px;
-        }
-        
-        table{
-            display: inline-block;
-
-        }
-
-        th,td {
-            border: 1px solid #999;
-            border-collapse: collapse;
-            padding: 5px;
-        }
-
-        a:link {
-        text-decoration: none;
-        color: black;
-        }
-
-        a:visited {
-        text-decoration: none;
-        color: black;
-        }
-
-        a:hover {
-        text-decoration: none;
-        color: black;
-        }
-
-        a:active {
-        text-decoration: none;
-        color: black;
-        }
-</style>
 <table><tr>  
     <td>
         <p>Input value</p>
@@ -79,5 +42,17 @@
     </tr>
 </table>
 
+<div class="cookie-container">
+      <p>
+        We use cookies in this website to give you the best experience on our
+        site and show you relevant ads. To find out more, read our
+        <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+      </p>
+
+      <button class="cookie-btn">
+        Okay
+      </button>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
