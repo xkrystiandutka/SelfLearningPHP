@@ -1,0 +1,19 @@
+body {
+    background-image: url('rockPaperScissors.jpg');
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.box {
+    margin: 2rem auto 0;
+    padding: 2rem;
+    background-color: #f3f3f3;
+    height: 500px;
+    width: 440px;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    margin-top: 5rem;
+}
