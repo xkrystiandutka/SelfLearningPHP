@@ -17,3 +17,7 @@ form {
     display: flex;
     margin-top: 5rem;
 }
+
+footer {
+    font-size: 18px;
+}
