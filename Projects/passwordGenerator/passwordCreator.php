@@ -8,21 +8,26 @@ class passwordCreator {
 
     private $type = "hard";
     private $limit = 7;
-    private $easyWords = "cow, dog, fish, fly, fox, moon, bird, car";
+    private $hasSpecialChatacters = false;
+    private $easyWords = "cow, dog, fish, fly, fox, moon, bird, car, milk, apple, orange, house, cat, hat, mat, bat";
 
     public function __construct($type, $limit)
     {
         $this -> type = $type;
-        $this -> limit = $this->limit;
+        $this -> limit = $limit;
+    }
+
+    public function setSpecialChatacters($val){
+        $this -> hasSpecialChatacters = $val;
     }
 
     public function generate(){
         if($this->type == self::LEVEL_EASY){
             return $this -> createEasyPassword();
         }else if($this->type == self::LEVEL_MEDIUM){
-
+            return $this -> createMediumPassword();
         }else if($this->type == self::LEVEL_HARD){
-        
+            return $this -> createHardPassword();            
         }
         return "An error occurred";
     }
@@ -30,8 +35,79 @@ class passwordCreator {
     private function createEasyPassword(){
         $pass = "";
         $word = $this->getRandomEasyWord();
-        return $word;
+        $number = $this -> getRandomNumber();
+        $count = strlen($word) - 1;
+        if($count < $this->limit){
+            $diff = $this -> limit - $count;
+            $range = $this -> createMaxAndMin($diff);
+            $number = $this->getRandomNumber($range['min'], $range['max']);
+        }
+        if($this -> hasSpecialChatacters){
+            $word = $this -> addSpecialCharacters($word);
+        }
+        $pass = $word . $number;
 
+        return $pass;
+    }
+
+    private function addSpecialCharacters($word){
+        $max = 1;
+        $check = 0 ;
+        $tags = ['a', 'i', 'o', 's'];
+        $replace = ['@', '!', '$', '&'];
+        $output = $word;
+        for ($i=0; $i<=count($tags)-1; $i++){
+            if($check >= $max) {
+                break;
+            }
+            if(strpos($word, $tags[$i]) !== false){
+                $output = str_replace($tags[$i], $replace[$i], $word);
+                $check++;
+            }
+        }
+        return $output;
+    }
+
+    private function createMediumPassword(){
+        $pass = "";
+        return $this->randomString($this->limit);
+    }
+
+    private function createHardPassword(){
+        return $this->randomString($this->limit);
+    }
+
+    private function randomString($len = 30){
+        $string = '';
+        if($this -> type == self::LEVEL_HARD) {
+            if($this->hasSpecialChatacters){
+                $characters = "abcdefghijklmnopqrstuvwxyz!@#_*$()%&^ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            }else {
+                $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            } 
+        }else {
+            if($this->hasSpecialChatacters){
+                $characters = "abcdefghijklmnopqrstuvwxyz!@#_*$()%&^0123456789";
+            } else {
+            $characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+        }
+    }
+        $max = strlen($characters) - 1;
+        for ($i = 0 ; $i < $len; $i++){
+            $string .= $characters[mt_rand(0, $max)];
+        }return $string;            
+    }
+
+    private function createMaxAndMin($limit){
+        $max = "9";
+        $min = "1";
+        for ($i = 0 ; $i <= $limit - 2; $i++){
+            $max = $max . '9';
+            $min = $min . '0';
+        } return [
+            'max' => $max,
+            'min' => $min
+        ];
     }
 
     private function getRandomEasyWord(){
@@ -39,7 +115,12 @@ class passwordCreator {
         $key = array_rand($ewArray, 1);
         return trim($ewArray[$key]);
     }
+
+    private function getRandomNumber( $min='10000', $max='99999'){
+        return rand($min, $max);
+    }
+
+
+
 }
-
-
 ?>
