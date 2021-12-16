@@ -28,13 +28,18 @@ $modes = ["easy", "medium", "hard"];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"/>
     <title>Password Generator</title>
 </head>
 <body>
     
-<h1>Password Maker</h1>
+<h2 style="font-size: 45px;">Password Maker</h2>
 <form method="post">
-    Mode: <select name="mode">
+   <h2> Mode: <select name="mode">
         <?php foreach($modes as $mode):?>
             <?php if($mode == $difficulty):?>
             <option value="<?php echo $mode;?>" selected="selected"><?php echo strtoupper($mode);?></option>
@@ -42,10 +47,11 @@ $modes = ["easy", "medium", "hard"];
             <option value="<?php echo $mode;?>"><?php echo strtoupper($mode);?></option>
                 <?php endif;?> 
         <?php endforeach;?>
+    
     </select>
     <br><br>
     Length: <input name="limit" type="number" style="width: 60px;" value="<?php echo $limit;?>"/>
-    <br>
+    <br><br>
     <?php if($special):?>
         <input type="checkbox" name="special" checked="checked"/> Special Characters
     <?php else:?>
@@ -53,10 +59,10 @@ $modes = ["easy", "medium", "hard"];
     <?php endif;?>
 
     <br><br>
-    <button type="submit" name="gen_pass"> Generator Password</button>
-
+    <button class="btn btn-3" type="submit" name="gen_pass"> Click Me</button>
+    </h2>
 </form>
-<h3>Your Password</h3>
+<h2>Your Password</h2>
 <p style="padding: 0 0 0 0; border: 1px solid #ccc; font-size:50px;"><?php echo $password;?></p>
 
 </body>
