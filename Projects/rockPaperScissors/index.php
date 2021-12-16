@@ -16,7 +16,7 @@
     <div class="box">
         <h1>Rock Paper Scissors</h1>
         <form method="get" action="index.php" autocomplete="off">
-            <input type="text" name="keuze" placeholder="Make your choice" class="form-control">
+            <input type="text" name="choose" placeholder="Make your choice" class="form-control">
             <input type="submit" name="submit" value="Shoot!" class="btn btn-success mb-2">
         </form>
 <?php
