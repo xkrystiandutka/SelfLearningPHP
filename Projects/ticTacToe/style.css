@@ -1,42 +1,55 @@
-    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
-    
     body {
         background-color: rgba(39, 200, 255, 0.5);
         color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        min-height: 100vh;
-        font-size: 25px;
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-    }
-    
-    p {
-        margin: 5px 0;
-    }
-    
-    h2 {
-        margin: 10px 0 20px;
         text-align: center;
     }
     
-    input[type=checkbox] {
-        margin-right: 0;
-        font-size: 25px;
+    h3 {
+        font-size: 50px;
     }
     
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
+    .tct-container {
+        min-height: 500px;
+        margin: 0 auto;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .tct-table {
+        border-collapse: separate;
+    }
+    
+    .tct-table th,
+    td {
+        padding: 20px;
+    }
+    
+    .tct-form {
+        background: rgba(143, 64, 248, 0.5);
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        display: inline-block;
+        padding: 20px;
+    }
+    
+    .tct-form button {
+        font-size: 30px;
+    }
+    
+    .tct-form select {
+        font-size: 50px;
+    }
+    
+    .tct-message {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 30px;
+        background: #f6f6f6;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 20px;
+        color: rgba(143, 64, 248, 0.5);
     }
     
     .btn {
@@ -49,16 +62,16 @@
     
     .btn-3 {
         overflow: hidden;
-        color: #fff;
-        border-radius: 20px;
+        color: #333;
+        border-radius: 30px;
         box-shadow: 0 0 0 0 rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .btn-3::after {
         content: "";
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
         position: absolute;
         top: -50px;
         left: -100px;

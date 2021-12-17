@@ -155,6 +155,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['play'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
     <title>Tic Tac Toe</title>
 </head>
 
@@ -165,7 +166,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['play'])){
         <?php if($message):?>
             <p class="tct-message"><?php echo $message;?></p>
         <?php endif;?>
-        <button type="submit" name="start">Start New Game</button><br><br>
+        <button class="buttons btn btn-3"  type="submit" name="start">Start New Game</button><br><br>
         <input name="board" type="hidden" value="<?php echo json_encode($board);?>"/>
         <input name="last" type="hidden" value="<?php echo $last;?>"/>
         <table class="tct-table" border="1">
@@ -182,7 +183,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['play'])){
             <?php endforeach;?>
         </table>
         <br>
-        <button name="play">End Turn</button>
+        <button class="buttons btn btn-3" name="play">End Turn</button>
     </form>
 </div>
 
