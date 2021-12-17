@@ -166,7 +166,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['play'])){
         <?php if($message):?>
             <p class="tct-message"><?php echo $message;?></p>
         <?php endif;?>
-        <button class="buttons btn btn-3"  type="submit" name="start">Start New Game</button><br><br>
+        <button class="buttons btn btn-3"  type="submit" name="start">New Game</button><br><br>
         <input name="board" type="hidden" value="<?php echo json_encode($board);?>"/>
         <input name="last" type="hidden" value="<?php echo $last;?>"/>
         <table class="tct-table" border="1">
