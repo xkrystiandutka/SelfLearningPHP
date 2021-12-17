@@ -1,17 +1,27 @@
 <?php
 
     $board = [
-    [0,1,0],
-    [1,1,0],
-    [3,1,0]
+    [3,3,3],
+    [3,3,3],
+    [3,3,3]
     ];
 
-    function create_title($value){
+    function create_title($value, $id){
         $o = "";
+        $name= "row_" . $id;
+        $realValue = null;
+        if($value == 0){
+            $realValue = "O";
+        }else if($value == 1){
+            $realValue == "X";
+        }else {
+            $realValue == "select";
+        }
         if($value == 0 || $value == 1) {
-            $o .="<select disabled='disabled'>";
+            $o .= "<input type='hidden' name='".$name."'value='".$realValue."'/>";
+            $o .= "<select disabled='disabled'>";
         } else {
-            $o = "<select>";
+            $o = "<select name='".$name."'>";
         }
             $o .= "<option>select</option>";
             if ($value == 0){
@@ -30,7 +40,28 @@
 
 
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['play'])){
-
+            $board = isset($_POST['board']) ? json_encode($_POST['board']) : [];
+            $responses = [];
+            $rowarray = [];
+            $counter = 0;
+            foreach ($_POST as $key=>$value) {
+                if(!in_array($key,["board", "play"])){
+                    if($value == 'O'){
+                        $rowarray[] = 0;
+                    } else if ($value == 'X') {
+                        $rowarray[] = 1;
+                    }else {
+                        $rowarray[] = 3;
+                    }
+                }
+                $counter++;
+                if($counter % 3 == 0){
+                $responses[] = $rowarray;
+                $rowarray = [];
+                }
+            }
+            $board = $responses;
+            
         }
 
 ?>
@@ -53,22 +84,21 @@
 
 <h1>Tic Tac Toe Games</h1>
 
-<form>
-
+<form method="POST">
+    <input name="board" type="hidden" value="<?php echo json_encode($board);?>"/>
     <table class="tct-table" border="1">
-        <?php foreach($board as $row):?>
+        <?php $count = 1; foreach($board as $row):?>
 
         <tr>
             <?php foreach($row as $title):?>
             <td>
-                <?php echo  create_title($title); ?>
+                <?php echo  create_title($title, $count); ?>
             </td>
-            <?php endforeach;?>
+            <?php $count++; endforeach;?>
         </tr>
             <?php endforeach;?>
     </table>
     <br>
-
     <button name="play"> End Turn </button>
 </form>
 
