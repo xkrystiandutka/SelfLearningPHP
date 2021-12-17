@@ -1,6 +1,37 @@
 <?php
 
+    $board = [
+    [0,1,0],
+    [1,1,0],
+    [3,1,0]
+    ];
 
+    function create_title($value){
+        $o = "";
+        if($value == 0 || $value == 1) {
+            $o .="<select disabled='disabled'>";
+        } else {
+            $o = "<select>";
+        }
+            $o .= "<option>select</option>";
+            if ($value == 0){
+                $o .= "<option selected='selected'>O</option>";
+            } else {
+                $o .= "<option>O</option>";
+            }
+            if ($value == 1){
+                $o .= "<option selected='selected'>X</option>";
+            } else {
+                $o .= "<option>X</option>";
+            }
+            $o .= "</select>";
+            return $o;
+        }
+
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['play'])){
+
+        }
 
 ?>
 
@@ -18,76 +49,28 @@
             border-collapse: separate;
         }
     </style>
-    <h1>Tic Tac Toe Games</h1>
+
+
+<h1>Tic Tac Toe Games</h1>
+
+<form>
 
     <table class="tct-table" border="1">
-        <tr>
-            <td>
-                <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select></td>
-            <td>
-            <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select></td>
-            <td>
-            <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select>
-            </td>
-        </tr>        <tr>
-            <td>
-                <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select></td>
-            <td>
-            <select>
-                    <option>select</option>
-                    <option>O</option>
-                    <option>X</option>
-                </select>
-            </td>
-        </tr>
-    </table>
+        <?php foreach($board as $row):?>
 
+        <tr>
+            <?php foreach($row as $title):?>
+            <td>
+                <?php echo  create_title($title); ?>
+            </td>
+            <?php endforeach;?>
+        </tr>
+            <?php endforeach;?>
+    </table>
+    <br>
+
+    <button name="play"> End Turn </button>
+</form>
 
 </body>
 </html>
