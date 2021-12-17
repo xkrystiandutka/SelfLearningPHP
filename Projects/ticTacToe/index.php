@@ -128,6 +128,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['play'])){
         }
     }
 
+    if(count($changes) > 1){
+        $message .= "Cant play more than once";
+    }else if($last !=  null  && $last == $changes[0]){
+        $message .= "You cannot play twice";
+    }else if(check_winner($win_conditions, $responses)){
+        $last = $changes[0];
+        $winner = null;
+        if($last == 1){
+            $winner = "X";
+        }else if($last == 0){
+            $winner = "O";
+        }
+        $board = $responses;
+        $message .= 'WE HAVE A WINNER!  ';
+        $message .= "THE WINNER IS :" .  $winner;
+    }else{
+        $last = $changes[0];
+        $board = $responses;
+    }
+
 }
 ?>
 
