@@ -8,3 +8,21 @@ I've been **learning** different aspects of several **programming languages**, *
 
 ## 📑 Learning Topics
 
+* variables&forms,
+* read & write,
+* arithmetic&comparison&logical operators,
+* array,
+* constants&data types,
+* cookies,
+* forms&get&post,
+* functions,
+* include&require,
+* loop
+* session,
+* OPP.
+
+## 📑 Projects
+* Password generator
+* Rock & Paper & Scissors game
+* Tic Tac Toe game
+
